@@ -17,7 +17,7 @@ class Suscripcion extends Service
 
 		// create response
 		$response = new Response();
-		$response->setResponseSubject("Usted ha sido excluido de Apretaste");
+		$response->setResponseSubject("Sus suscripciones actuales");
 		$response->createFromTemplate("basic.tpl", $status);
 		return $response;
 	}
@@ -34,7 +34,7 @@ class Suscripcion extends Service
 		$text = 'Su estado en la lista de correo no ha cambiado. Envie un email con asunto "SUSCRIPCION LISTA salir" para salr de la lista o "SUSCRIPCION LISTA entrar" para formar parte.';
 
 		// for the case unsubscribing to the list
-		if($request->query == "salir")
+		if(strtoupper($request->query) == "SALIR")
 		{
 			$this->utils->unsubscribeFromEmailList($request->email);
 			$text = 'Le hemos eliminado de la lista de correo. Ahora no recibira mas nuestra correspondencia';
@@ -42,7 +42,7 @@ class Suscripcion extends Service
 		}
 
 		// for the case subscribing to the list
-		if($request->query == "entrar")
+		if(strtoupper($request->query) == "ENTRAR")
 		{
 			$this->utils->subscribeToEmailList($request->email);
 			$text = 'Le hemos agregado a nuestra lista de correo. Ahora debera empezar a recibir nuestra correspondencia';
