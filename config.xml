@@ -5,6 +5,7 @@
 		<alias>subscripcion</alias>
 		<alias>subscripciones</alias>
 		<alias>excluir</alias>
+		<alias>excluyeme</alias>
 	</serviceAliases>
 	<serviceDescription>Muestra subscripciones abiertas para Apretaste</serviceDescription>
 	<creatorEmail>salvi@apretaste.com</creatorEmail>
